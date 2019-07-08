@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Generate Due List";
+}
+
+<h2>Generate Due List</h2>
+<style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #286090;
+            color: white;
+        }
+</style>
+<div class="row">
+    <div class="col-md-1">
+        <label class="color-black">Location</label>
+    </div>
+    <div class="col-md-2">
+        <select id="LocationCode" class="form-control">
+            <option value="">Select</option>
+            <option value="All">All</option>
+            <option value="NRPT1">NRPT1</option>
+            <option value="NRPT2">NRPT2</option>
+            <option value="SP">SP</option>
+        </select>
+    </div>
+    <input type="button" id="btnSubmit" value="Generate Due List" class="btnSave btn btn-primary btn-sm" />
+
+</div>
+
+
+<table id="customers" style="margin-top:2%;width:100%;"  >
+    <thead>
+        <tr>
+            <th>S.no</th>
+            <th>Agreement No</th>
+            <th>Vehicle No</th>
+            <th>Vehicle Name</th>
+            <th>Model</th>
+            <th>Customer Name</th>
+            <th>Mobile Number</th>
+            <th>EMI Amount</th>
+            <th>Due Date</th>
+            <th>Pending EMIs</th>
+            <th>Previous EMI<br />pending Amount</th>
+            <th>Total Amount</th>
+            <th>last Paid</th>
+        </tr>
+    </thead>
+    <tbody  id="tbody"></tbody>
+</table>
+
+<div class="row" style="margin-top:1%">
+    <input type="button" id="btnSubmit1" value="Print Due List" style="margin-left:76%" class="btnSave btn btn-primary btn-default" />
+    <input type="button" id="btnSubmit2" value="Download Due List" class="btnSave btn btn-primary btn-default pull-right" />
+</div>
+
+
+@section scripts{
+    <script>
+        $("#btnSubmit").click(function () {
+            var LocationCode = $("#LocationCode").val();
+             if (LocationCode == null || LocationCode == '') {
+                toastr.warning('Please Provide Store Location Input','Warning')
+            }
+           
+            $.ajax({
+                type: "POST",
+                url: '/GenerateDueList/GetRecordsForGenerateDueList',
+                data: { "LocationCode": LocationCode},
+                success: function (data) {
+                    // alert(data);
+                    $("#tbody").html(data);
+                    
+                },
+                error: function (err) {
+                    toastr.error('Error occurred while fetching Data', 'Error');
+                }
+            });
+
+        });
+    </script>
+}

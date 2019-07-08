@@ -1,0 +1,390 @@
+﻿@using HPAF.Models;
+@{
+    /**/
+
+    ViewBag.Title = "EMI Update";
+}
+
+<h2>EMI Update</h2>
+
+<style>
+    #EMITable {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #EMITable td, #EMITable th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #EMITable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #EMITable tr:hover {
+            background-color: #ddd;
+        }
+
+        #EMITable th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #286090;
+            color: white;
+        }
+        .col-md-8{
+            width:75%;
+        }
+        .col-md-12{
+            width:107%;
+        }
+</style>
+<div class="col-md-12" style="margin-top:1%;margin-left:-3%">
+
+    <div class="col-md-6">
+        <div class="col-md-2">
+            <label>Input</label>
+        </div>
+        <div class="col-md-6" style="margin-left:-2%">
+            <input type="text" class="form-control" placeholder="Enter Vehicle No/Agreement No" id="input" />
+        </div>
+        <div class="col-md-3">
+            <input type="button" id="getdata" value="Get Data" class="btnSave btn btn-primary btn-default" />
+        </div>
+    </div>
+</div>
+<div class="col-md-12" style="margin-top:3%;margin-left:-3%" >
+
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Customer Name</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="CustomerName" status="" status1="" class="form-control" value="" disabled />
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Vehicle No</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="VehicleNo" class="form-control" value="" disabled />
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">EMI Amount</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="emiamount" class="form-control" value="" disabled />
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Total EMIs</label>
+        </div>
+        <div class="col-md-8">
+            <input type="text" id="totalemis" class="form-control" value="" disabled />
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-12" style="margin-top:1%;margin-left:-3%">
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Balance Amount</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="balanceamount" class="form-control" value="" disabled />
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Payment Date</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="date" id="paymentdate" class="form-control" />
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Payment Location</label>
+        </div>
+        <div class="col-md-8">
+            <select id="paymentlocation" class="form-control">
+                <option value="">Select</option>
+                <option value="NRPT1">NRPT1</option>
+                <option value="NRPT2">NRPT2</option>
+                <option value="SP">SP</option>
+            </select>
+        </div>
+        
+    </div>
+
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Store Location</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="storelocation" class="form-control" value="" disabled />
+        </div>
+    </div>
+
+</div>
+
+
+<div class="col-md-12" style="margin-top:1%;margin-left:-3%">
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Home Loan Status</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="homeloanstatus" class="form-control" value="Paid" disabled />
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Loan Amount</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="loanamount" class="form-control" value="" disabled />
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Due Date</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="duedate" class="form-control" disabled />
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">No of days delayed</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="nooddaysdelayed" class="form-control" value="" disabled />
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="margin-top:1%;margin-left:-3%">
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">Total Amount in this EMI</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="totalamountinthisEMI" class="form-control" disabled />
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-3">
+            <label class="color-black">EMI Amount Received</label>
+        </div>
+
+        <div class="col-md-8">
+            <input type="text" id="emiamountreceived" class="number form-control" value="" />
+        </div>
+    </div>
+
+    <input type="button" id="Pay" value="Pay"  class="btnSave btn btn-primary btn-default" style="margin-left:33%"/>
+    <input type="button" id="btnSubmit2" value="Print Receipt" class="btnSave btn btn-primary btn-default" style="margin-left:1%"/>
+</div>
+
+
+
+<table id="EMITable" @*class="table table-bordered table-responsive table-hover"*@ style="margin-top:1%">
+    <thead>
+        <tr>
+            <th>S.no</th>
+            <th>EMI Amount</th>
+            <th>Due Date</th>
+            <th>EMI Received</th>
+            <th>Last Received Date</th>
+            <th>No of Days Delayed</th>
+            <th>Penalty</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="EMIBody"></tbody>
+   </table>
+
+
+@section scripts{
+    <script>
+
+        $('[class^=number]').keypress(validateNumber);
+
+        function validateNumber(event) {
+            var key = window.event ? event.keyCode : event.which;
+            if (event.keyCode === 8 || event.keyCode === 46) {
+                return true;
+            } else if (key < 48 || key > 57) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+        var now = new Date();
+
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+        var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+        $('#paymentdate').val(today);
+
+        var jsonEMI = '';
+
+
+        function BindEMIPaymentTableData(EMIDetails) {
+            $('#EMITable tbody').empty();
+           // debugger;
+            if (EMIDetails != null) {
+                for (var i = 0; i < EMIDetails.length; i++) {
+                    var tableRow = '<tr>';
+                    tableRow += '<td>' + EMIDetails[i].SNo + '</td>';
+                    tableRow += '<td>' + EMIDetails[i].EMIAmount + '</td>';
+                    tableRow += '<td>' + EMIDetails[i].DueDate + '</td>';
+                    tableRow += '<td>' + EMIDetails[i].EMIReceived + '</td>';
+                    tableRow += '<td>' + EMIDetails[i].LastReceivedDate + '</td>';
+                    tableRow += '<td>' + EMIDetails[i].NoofDaysDelayed + '</td>';
+                    tableRow += '<td>' + EMIDetails[i].Penalty + '</td>';
+                    tableRow += '<td>' + EMIDetails[i].Status + '</td>';
+                    $('#EMITable tbody').append(tableRow);
+                }
+            }
+        }
+        $(document).on('click', '#getdata', function () {
+            //debugger;
+           var EMIPaymentInput = $("#input").val();
+            GetDataforPage(EMIPaymentInput);
+           
+        });
+
+        function GetDataforPage(x) {
+            var EMIPaymentInput = x;
+            if (EMIPaymentInput != "") {
+                $.ajax({
+                    url: '/EMIPayment/GetDataforEMIPayment',
+                    data: {
+                        EMIPaymentInput: EMIPaymentInput,
+                    },
+                    contentType: false,
+                    dataType: "json",
+                    success: function (Data) {
+                        debugger;
+                        if (Data != null) {
+                            $("#CustomerName").val(Data.CustomerName);
+                            $("#CustomerName").attr('status', Data.CustomerID);
+                            $("#CustomerName").attr('status1', Data.AgreementID);
+                            $("#VehicleNo").val(Data.VehicleNo);
+                            $("#emiamountreceived").val('');
+                            $("#emiamount").val(Data.EMIAmount);
+                            $("#totalemis").val(Data.TotalEMIs);
+                            $("#balanceamount").val(Data.BalanceAmount);
+                            $("#storelocation").val(Data.StoreLocation);
+                            $("#loanamount").val(Data.TotalLoanAmount);
+                            $("#duedate").val(Data.DueDate);
+                            $("#nooddaysdelayed").val(Data.NoODaysDelayed);
+                            $("#totalamountinthisEMI").val(Data.TotalAmountInThisMonth);
+                            BindEMIPaymentTableData(Data.EMIWorkList);
+                        }
+                        else {
+                            toastr.error('Error occurred while submitting the data.Please refresh the page and try again', 'Error');
+                        }
+
+                    }
+
+                });
+            }
+            else {
+                toastr.warning('Please provide either Agreement Number or Vehicle Number', 'Warning')
+            }
+        }
+        $(document).on('click', '#Pay', function () {
+            debugger;
+            var EMIPaymentInput = $("#input").val();
+            var CustomerID = $("#CustomerName").attr('status');
+            var AgreementID = $("#CustomerName").attr('status1');
+            var StoreLocation = $("#storelocation").val();
+            var PaymentReceivedLocation = $("#paymentlocation").val();
+            var EMIAmount = $("#emiamountreceived").val();
+            var DueDate = $("#duedate").val();
+            var DateofPayment = $("#paymentdate").val();
+            var NoOfDaysDelayed = $("#nooddaysdelayed").val();
+            var Status = 'Paid';
+
+
+            if (EMIAmount == "") { toastr.warning("Please provide EMI Amount", 'Warning'); }
+            if (DateofPayment == "") { toastr.warning("Please provide Date of Payment", 'Warning'); }
+
+            var jsonObj = [];
+            var item = {};
+
+
+            item["CustomerID"] = CustomerID;
+            item["AgreementID"] = AgreementID;
+            item["StoreLocation"] = StoreLocation;
+            item["PaymentReceivedLocation"] = PaymentReceivedLocation;
+            item["EMIAmount"] = EMIAmount;
+            item["DueDate"] = DueDate;
+            item["DateofPayment"] = DateofPayment;
+            item["NoOfDaysDelayed"] = NoOfDaysDelayed;
+            item["Status"] = Status
+
+
+            jsonObj.push(item);
+            jsonEMI = JSON.stringify(jsonObj);
+
+                if (jsonEMI.length > 0 && EMIAmount != '' && DateofPayment!='') {
+
+                $.ajax({
+                    url: '/EMIPayment/UpdateEMIPayment',
+                    data: {
+                        jsonEMI: jsonEMI,
+                       },
+                    contentType: false,
+
+                    success: function (Data) {
+                        if (Data != -1) {
+                            toastr.success('Payment done Successfully', 'Success');
+                            GetDataforPage(EMIPaymentInput);
+                        }
+                        else {
+                            toastr.error('Error occurred while submitting the data.Please refresh the page and try again', 'Error');
+                        }
+
+                    }
+
+                });
+
+            }
+            return false;;
+
+        });
+
+    </script>
+}
+

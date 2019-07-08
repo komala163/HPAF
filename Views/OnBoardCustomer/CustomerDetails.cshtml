@@ -1,0 +1,1082 @@
+﻿@{
+    ViewBag.Title = "Customer Details";
+}
+<style>
+    .hef .col-md-12{
+        width:107%;
+    }
+   .hef .col-md-8 {
+        width: 75%;
+    }
+</style>
+<div id="customerdetails">
+    <h2>Customer Details</h2>
+    <div class="col-md-12 hef" style="margin-top:2%;margin-left:-3%" >
+
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">First Name*</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="firsttname" class="form-control" />
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Last Name*</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="lastname" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Date Of Birth</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="date" id="dob" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Gender*</label>
+            </div>
+            <div class="col-md-8">
+                <select id="gender" class="form-control">
+                    <option value="">Select</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+                @*<input type="text" id="gender" class="form-control" />*@
+            </div>
+        </div>
+    </div>
+   
+    <div class="col-md-12 hef" style="margin-top:1%;margin-left:-3%" >
+
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Age</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="age" class="number form-control" />
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Mobile Number*</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="mobilenum" class="number form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Aadhar Number *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="aadhar" class="number form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Pin-Code *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="pincode" class="number form-control" />
+            </div>
+        </div>
+    </div>
+   
+    <div class="col-md-12 hef" style="margin-top:1%;margin-left:-3%">
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Father/Husband Name*</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="fathusname" class="form-control" />
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Occupation</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="occupation" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Landmark *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="landmark" class="form-control" />
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <label class="color-black">Address *</label>
+            </div>
+
+            <div class="col-md-8">
+                <textarea id="address" rows="4" cols="50" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6 blue-container-box margin-bottom" style="margin-top:1%;margin-right:1%">
+        <div class="col-md-1" style="margin-left:1%">
+            <label class="color-black">Photo</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group" style="margin-left:6%">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" name="file" id="FileUpload1" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="col-md-1" style="margin-left:-28%">
+            <input type="button" id="btnUpload" value="Upload" class="btn btn-success" />
+        </div>
+
+    </div>
+
+    <div class="col-md-6 blue-container-box margin-bottom" style="margin-top:1%;margin-right:1%">
+        <div class="col-md-1" style="margin-left:1%">
+            <label class="color-black">Aadhar</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group" style="margin-left:6%">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" name="file" id="FileUpload1" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="col-md-1" style="margin-left:-28%">
+            <input type="button" id="btnUpload" value="Upload" class="btn btn-success" />
+        </div>
+
+    </div>
+    <div class="col-md-6 blue-container-box margin-bottom" style="margin-top:1%">
+        <div class="col-md-1" style="margin-left:1%">
+            <label class="color-black">Address Proof</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group" style="margin-left:6%">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" name="file" id="FileUpload1" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="col-md-1" style="margin-left:-28%">
+            <input type="button" id="btnUpload" value="Upload" class="btn btn-success" />
+        </div>
+
+    </div>
+
+    <div class="row">
+        <input type="button" id="btnSubmit1" value="Save and Next" class="btnSave btn btn-primary btn-default pull-right" />
+    </div>
+</div>
+
+
+<div id="guaranteerdetails" style="display:none">
+    <h2>Guaranteer Details</h2>
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">First Name *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="firsttname1" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Last Name *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="lastname1" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Date Of Birth</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="dob1" class="form-control" />
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Gender *</label>
+            </div>
+            <div class="col-md-8">
+                <select id="gender1" class="form-control">
+                    <option value="">Select</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Age</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="age1" class="number form-control" />
+            </div>
+        </div>
+
+        @*<div class="col-md-12" style="margin-top:1%">*@
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Mobile Number*</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="mobilenum1" class="number form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Aadhar Number*</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="aadhar1" class="number form-control" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Pin-Code *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="pincode1" class="number form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:1%">
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Father/Husband Name</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="fathusname1" class="form-control" />
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Occupation</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="occupation1" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12" style="margin-top:1%">
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Landmark *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="landmark1" class="form-control" />
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Address *</label>
+            </div>
+
+            <div class="col-md-8">
+                <textarea id="address1" rows="4" cols="50" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12 blue-container-box margin-bottom" style="margin-top:1%">
+        <div class="col-md-1" style="margin-left:1%">
+            <label class="color-black">Photo</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group" style="margin-left:6%">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" name="file" id="FileUpload1" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="col-md-1" style="margin-left:-28%">
+            <input type="button" id="btnUpload" value="Upload" class="btn btn-success" />
+        </div>
+
+    </div>
+
+    <div class="col-md-12 blue-container-box margin-bottom" style="margin-top:1%">
+        <div class="col-md-1" style="margin-left:1%">
+            <label class="color-black">Aadhar</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group" style="margin-left:6%">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" name="file" id="FileUpload1" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="col-md-1" style="margin-left:-28%">
+            <input type="button" id="btnUpload" value="Upload" class="btn btn-success" />
+        </div>
+
+    </div>
+    <div class="col-md-12 blue-container-box margin-bottom" style="margin-top:1%">
+        <div class="col-md-1" style="margin-left:1%">
+            <label class="color-black">Address Proof</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group" style="margin-left:6%">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" name="file" id="FileUpload1" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="col-md-1" style="margin-left:-28%">
+            <input type="button" id="btnUpload" value="Upload" class="btn btn-success" />
+        </div>
+
+    </div>
+
+    <div class="row">
+        <input type="button" id="previousguaranteer" value="Previous" class="btnSave btn btn-primary btn-default" style="margin-left:82%"/>
+        <input type="button" id="btnSubmit2" value="Save and Next" class="btnSave btn btn-primary btn-default pull-right" />
+    </div>
+</div>
+
+<div id="vehicledetails" style="display:none">
+    <h2>Vehicle Details</h2>
+
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Vehicle Name *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="vehiclename" class="alphanum form-control" />
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Model *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="model" class="number form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Vehicle No</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="vehiclenum" class="alphanum form-control" />
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Registration No *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="regnum" class="alphanum form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Engine No *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="enginenum" class="alphanum form-control" />
+            </div>
+        </div>
+
+        @*<div class="col-md-12" style="margin-top:1%">*@
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Chasis No *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="chasisnum" class="alphanum form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Previous RC</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="previousrc" class="alphanum form-control" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Pollution(Y/N)</label>
+            </div>
+
+            <div class="col-md-8">
+                <select id="pollution" class="form-control">
+                    <option selected value="">Select</option>
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">NOC Document(Y/N)</label>
+            </div>
+
+            <div class="col-md-8">
+                <select id="noc" class="form-control">
+                    <option selected value="">Select</option>
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Insurance Available(Y/N)</label>
+            </div>
+
+            <div class="col-md-8">
+                <select id="insurance" class="form-control">
+                    <option selected value="">Select</option>
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Vehicle Type *</label>
+            </div>
+
+            <div class="col-md-8">
+                @*<input type="text" id="vehicletype" class="alphanum form-control" />*@
+                <select id="vehicletype" class="form-control">
+                    <option selected value="0">Select</option>
+                    <option value="Gear">Gear</option>
+                    <option value="With out Gear">With out Gear</option>
+                    <option value="Moped">Moped</option>
+                </select>
+            </div>
+        </div>
+
+        @*<div class="col-md-12" style="margin-top:1%">*@
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Vehicle Company</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="vehiclecompany" class="alphanum form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Loan Store Location *</label>
+            </div>
+
+            <div class="col-md-8">
+                <select id="storelocation" class="form-control">
+                    <option value="">Select</option>
+                    <option value="NRPT1">NRPT1</option>
+                    <option value="NRPT2">NRPT2</option>
+                    <option value="SP">SP</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 blue-container-box margin-bottom" style="margin-top:1%">
+        <div class="col-md-1" style="margin-left:1%">
+            <label class="color-black">RC Upload</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group" style="margin-left:6%">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" name="file" id="FileUpload1" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="col-md-1" style="margin-left:-28%">
+            <input type="button" id="btnUpload" value="Upload" class="btn btn-success" />
+        </div>
+
+    </div>
+
+    <div class="row">
+        <input type="button" id="previousvehicle" value="Previous" class="btnSave btn btn-primary btn-default" style="margin-left:82%" />
+        <input type="button" id="btnSubmit3" value="Save and Next" class="btnSave btn btn-primary btn-default pull-right" />
+    </div>
+
+</div>
+
+<div id="schemedetails" style="display:none">
+    <h2>SchemeDetails</h2>
+    <div id="dialog" style="display: none"></div>
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Agreement No *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="agreementnum" class="number form-control" />
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Down Payment</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="downpayment" class="number form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Hand Loan</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="handloan" class="number form-control" />
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Total Loan Amount *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="totalloan" class="number form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:1%">
+
+         <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">No of EMI's</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="noofemis" class="number form-control txtdrp" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">EMI Amount *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="emiamount" class="number form-control" />
+            </div>
+        </div>
+
+
+       
+    </div>
+    <div class="col-md-12" style="margin-top:1%">
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Agreement Date *</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="date" id="agreementdate" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Hand Loan Due Date</label>
+            </div>
+
+            <div class="col-md-8">
+                <input type="date" id="handloanduedate" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:1%">
+
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <label class="color-black">Loan Store Location *</label>
+            </div>
+
+            <div class="col-md-8">
+                <select id="storelocation1" class="form-control">
+                    <option value="">Select</option>
+                    <option value="NRPT1">NRPT1</option>
+                    <option value="NRPT2">NRPT2</option>
+                    <option value="SP">SP</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <input type="button" id="previousscheme" value="Previous" class="btnSave btn btn-primary btn-default" style="margin-left:82%" />
+        <input type="button" id="btnSubmit4" value="Submit" class="btnSave btn btn-primary btn-default pull-right" />
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var jsoncustomer = "", jsonguaranter = "", jsonvehicle = "", jsonscheme = "";
+        var pat1 = /(^\d{6}$)/;
+        var pattern = /^\d{10}$/;
+        //var pat1 = /^ [1 - 9][0 - 9]{ 5}$/;
+        //var pattern = /^ [1 - 9][0 - 9]{ 9}$/;
+
+        var now = new Date();
+
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+        var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+        $('#agreementdate').val(today);
+
+        $('[class^=number]').keypress(validateNumber);
+        $('[class^=alphanum]').keypress(validateAlphaNumber);
+
+        $(document).on('click', '#previousguaranteer', function () {
+            $("#guaranteerdetails").hide();
+            $("#customerdetails").show();
+        });
+        $(document).on('click', '#previousvehicle', function () {
+            $("#guaranteerdetails").show();
+            $("#vehicledetails").hide();
+        });
+        $(document).on('click', '#previousscheme', function () {
+            $("#schemedetails").hide();
+            $("#vehicledetails").show();
+        });
+
+
+        $(document).on('blur', '.txtdrp', function () {
+            var noofemis = $("#noofemis").val();
+            var totalloan = $("#totalloan").val();
+            if (totalloan == "") { toastr.warning('Invalid data input ...Loan Amount Input can not be null', 'Warning'); }
+            var x = Math.round(totalloan / noofemis) 
+            $("#emiamount").val(x);
+        });
+        $(document).on('click', '#btnSubmit1', function () {
+            //debugger;
+            var firsttname = $("#firsttname").val();
+            var lastname = $("#lastname").val();
+            var fatHusname = $("#fathusname").val();
+            var dob = $("#dob").val();
+            var gender = $("#gender").val();
+            var age = $("#age").val();
+            var mobilenum = $("#mobilenum").val();
+            var aadharno = $("#aadhar").val();
+            var pincode = $("#pincode").val();
+            var address = $("#address").val();
+             var landmark = $("#landmark").val();
+            var occupation = $("#occupation").val();
+
+            if (firsttname == "") { toastr.warning("Please provide first name", 'Warning'); }
+            if (lastname == "") { toastr.warning("Please provide last name", 'Warning'); }
+            if (fatHusname == "") { toastr.warning("Please provide Father or Husband name", 'Warning'); }
+            //if (pincode == "") { toastr.warning("Please provide Pincode", 'Warning'); }
+            if (gender == "") { toastr.warning("Please provide gender", 'Warning'); }
+            if (landmark == "") { toastr.warning("Please provide landmark", 'Warning'); }
+            //if (mobilenum == "") { toastr.warning("Please provide Mobile Number", 'Warning'); }
+            if (aadharno == "") { toastr.warning("Please provide Aadhar Number", 'Warning'); }
+            if (address == "") { toastr.warning("Please provide Address", 'Warning'); }
+            if (!pat1.test(pincode)) {
+                debugger;
+                alert("Pin code should be 6 digits ");
+               // pincode.focus();
+                return false;
+            }
+
+            if (!pattern.test(mobilenum)) {
+                alert("Phone nubmer should be 10 digits ");
+               // mobilenum.focus();
+                return false;
+            }
+
+            var jsonObj = [];
+            var item = {};
+
+                item["FirstName"] = firsttname;
+                item["LastName"] = lastname;
+                item["FatherOrHusbandName"] = fatHusname;
+                item["DOB"] = dob;
+                item["Gender"] = gender;
+                item["Age"] = age;
+                item["MobileNo"] = mobilenum;
+                item["AadharNo"] = aadharno;
+                item["Address"] = address;
+                item["Landmark"] = landmark;
+                item["Pincode"] = pincode;
+                item["Occupation"] = occupation;
+        
+            
+                jsonObj.push(item);
+                jsoncustomer = JSON.stringify(jsonObj);
+            
+            
+            if (jsoncustomer.length > 0 && firsttname != "" && lastname != "" && fatHusname != "" && gender != "" && landmark != ""
+                && mobilenum != "" && aadharno != "" && address != "" && pincode != "") {
+                debugger;
+                $("#guaranteerdetails").show();
+                $("#customerdetails").hide();
+
+            }
+            //else {
+            //    toastr.warning('Please Provide all the Mandatory Inputs','Warning')
+            //}
+        });
+
+        $(document).on('click', '#btnSubmit2', function () {
+            //debugger;
+            var firsttname1 = $("#firsttname1").val();
+            var lastname1 = $("#lastname1").val();
+            var fatHusname1 = $("#fathusname1").val();
+            var dob1 = $("#dob1").val();
+            var gender1 = $("#gender1").val();
+            var age1 = $("#age1").val();
+            var mobilenum1 = $("#mobilenum1").val();
+            var aadharno1 = $("#aadhar1").val();
+            var pincode1 = $("#pincode1").val();
+            var address1 = $("#address1").val();
+            var landmark1 = $("#landmark1").val();
+            var occupation1 = $("#occupation1").val();
+
+
+
+            if (firsttname1 == "") { toastr.warning("Please provide first name", 'Warning'); }
+            if (lastname1 == "") { toastr.warning("Please provide last name", 'Warning'); }
+            //if (fatHusname1 == "") { toastr.warning("Please provide Father or Husband name", 'Warning'); }
+            //if (pincode1 == "") { toastr.warning("Please provide Pincode", 'Warning'); }
+            if (gender1 == "") { toastr.warning("Please provide gender", 'Warning'); }
+            if (landmark1 == "") { toastr.warning("Please provide landmark", 'Warning'); }
+           // if (mobilenum1 == "") { toastr.warning("Please provide Mobile Number", 'Warning'); }
+            if (aadharno1 == "") { toastr.warning("Please provide Aadhar Number", 'Warning'); }
+            if (address1 == "") { toastr.warning("Please provide Address", 'Warning'); }
+
+            if (!pat1.test(pincode1)) {
+                debugger;
+                alert("Pin code should be 6 digits ");
+                // pincode.focus();
+                return false;
+            }
+
+            if (!pattern.test(mobilenum1)) {
+                alert("Phone number should be 10 digits ");
+               // mobilenum1.focus();
+                return false;
+            }
+
+            var jsonObj = [];
+            var item = {};
+            item["FirstName"] = firsttname1;
+                item["LastName"] = lastname1;
+                item["FatherOrHusbandName"] = fatHusname1;
+                item["DOB"] = dob1;
+                item["Gender"] = gender1;
+                item["Age"] = age1;
+                item["MobileNo"] = mobilenum1;
+                item["AadharNo"] = aadharno1;
+                item["Address"] = address1;
+                item["Landmark"] = landmark1;
+                item["Pincode"] = pincode1;
+                item["Occupation"] = occupation1;
+            
+
+            jsonObj.push(item);
+            jsonguaranter = JSON.stringify(jsonObj);
+           
+            if (jsonguaranter.length > 0 && firsttname1 != "" && lastname1 != ""  && gender1 != "" && landmark1 != ""
+                && mobilenum1 != "" && aadharno1 != "" && address1 != "" && pincode1!="") {
+
+                $("#guaranteerdetails").hide();
+                $("#vehicledetails").show();
+
+            }
+            
+        });
+        $(document).on('click', '#btnSubmit3', function () {
+            //debugger;
+            var vehiclename = $("#vehiclename").val();
+            var model = $("#model").val();
+            var vehiclenum = $("#vehiclenum").val();
+            var regnum = $("#regnum").val();
+            var enginenum = $("#enginenum").val();
+            var chasisnum = $("#chasisnum").val();
+            var previousrc = $("#previousrc").val();
+            var pollution = $("#pollution").val();
+            var insurance = $("#insurance").val();
+            var noc = $("#noc").val();
+            var vehicletype = $("#vehicletype").val();
+            var vehiclecompany = $("#vehiclecompany").val();
+            var storelocation = $("#storelocation").val();
+
+
+
+            if (vehiclename == "") { toastr.warning("Please provide Vehicle name", 'Warning'); }
+            if (model == "") { toastr.warning("Please provide Model", 'Warning'); }
+           // if (vehiclenum == "") { toastr.warning("Please provide Vehicle Number", 'Warning'); }
+            if (regnum == "") { toastr.warning("Please provide Registration Number", 'Warning'); }
+            if (enginenum == "") { toastr.warning("Please provide Engine Number", 'Warning'); }
+            if (chasisnum == "") { toastr.warning("Please provide Chasis Number", 'Warning'); }
+            //if (pollution == "") { toastr.warning("Please provide pollution Status", 'Warning'); }
+            if (insurance == "") { toastr.warning("Please provide Insurance Status", 'Warning'); }
+            if (noc == "") { toastr.warning("Please provide Noc Documents Status", 'Warning'); }
+            if (storelocation == "") { toastr.warning("Please provide Store Location", 'Warning'); }
+            
+            var jsonObj = [];
+            var item = {};
+            item["StoreLocation"] = storelocation;
+                item["VehicleName"] = vehiclename;
+                item["Model"] = model;
+                item["RegistrationNo"] = regnum;
+                item["VehicleNO"] = vehiclenum;
+                item["EngineNo"] = enginenum;
+                item["ChasisNo"] = chasisnum;
+                item["PreviousRegNo"] = previousrc;
+                item["Insurance"] = insurance;
+                item["NOCDocuments"] = noc;
+                item["Pollution"] = pollution;
+                item["VehicleType"] = vehicletype;
+                item["VehicleCompany"] = vehiclecompany;
+            
+            jsonObj.push(item);
+            jsonvehicle = JSON.stringify(jsonObj);
+            
+            if (jsonvehicle.length > 0 && vehiclename != "" && model != "" /*&& vehiclenum != ""*/ && regnum != "" && enginenum != ""
+                && chasisnum != ""  && insurance != "" && noc != "" && storelocation != "") {
+                $("#schemedetails").show();
+                $("#vehicledetails").hide();
+            }
+            
+        });
+
+
+        $(document).on('click', '#btnSubmit4', function () {
+
+            var agreementNum = $("#agreementnum").val();
+            var downpayment = $("#downpayment").val();
+            var handloan = $("#handloan").val();
+            var totalloan = $("#totalloan").val();
+            var emiamount = $("#emiamount").val();
+            var noofemis = $("#noofemis").val();
+            var agreementdate = $("#agreementdate").val();
+            var handloanduedate = $("#handloanduedate").val();
+            var storelocation = $("#storelocation1").val();
+
+
+
+            if (agreementNum == "") { toastr.warning("Please provide Agreement Number", 'Warning'); }
+            //if (downpayment == "") { toastr.warning("Please provide Down Payment Amount", 'Warning'); }
+           // if (handloan == "") { toastr.warning("Please provide Hand Loan Amount", 'Warning'); }
+            if (totalloan == "") { toastr.warning("Please provide Total Loan Amount", 'Warning'); }
+            if (emiamount == "") { toastr.warning("Please provide EMI Amount", 'Warning'); }
+            if (noofemis == "") { toastr.warning("Please provide Number of EMIs", 'Warning'); }
+            //if (handloanduedate == "") { toastr.warning("Please provide Hand Loan Due Date", 'Warning'); }
+            if (storelocation == "") { toastr.warning("Please provide Store Location", 'Warning'); }
+            if (agreementdate == "") { toastr.warning("Please provide agreementdate", 'Warning'); }
+
+            var jsonObj = [];
+            var item = {};
+           
+
+                item["AgreementID"] = agreementNum;
+                item["LocationCode"] = storelocation;
+                item["DownPayment"] = downpayment;
+                item["HandLoan"] = handloan;
+                item["TotalLoanAmount"] = totalloan;
+                item["EMIAmount"] = emiamount;
+                item["NoOfEMI"] = noofemis;
+                item["AgreementDate"] = agreementdate;
+                item["HandLoanDueDate"] = handloanduedate;
+            
+
+            jsonObj.push(item);
+            jsonscheme = JSON.stringify(jsonObj);
+            
+            if (jsonscheme.length > 0 && agreementNum != "" && totalloan != "" && agreementdate!=""
+                && emiamount != "" && noofemis != ""  && storelocation != "") {
+
+                $.ajax({
+                    url: '/OnBoardCustomer/InsertOnBoardCustomerDetails',
+                    data: {
+                        jsoncustomer: jsoncustomer,
+                        jsonguaranter: jsonguaranter,
+                        jsonvehicle: jsonvehicle,
+                        jsonscheme: jsonscheme,
+
+                    },
+                    contentType: false,
+
+                    success: function (Data) {
+                        if (Data != -1) {
+                            //alert('Sucess');
+                            toastr.success('Data Submitted Successfully', 'Success');
+                            $('#btnSubmit4').prop('disabled', true);
+                            $('#previousscheme').prop('disabled', true);
+                        }
+                        else {
+                            toastr.error('Error occurred while submitting the data.Please refresh the page and try again', 'Error');
+                        }
+
+                    }
+
+                });
+
+            }
+            return false;
+        });
+
+
+        function validateNumber(event) {
+            var key = window.event ? event.keyCode : event.which;
+            if (event.keyCode === 8 || event.keyCode === 46) {
+                return true;
+            } else if (key < 48 || key > 57) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+
+        function validateAlphaNumber(event) {
+            var key = window.event ? event.keyCode : event.which;
+            if (event.keyCode === 8) {
+                return true;
+            } else if (key > 90 && key < 97) {
+                return false;
+            }
+            else if (key > 58 && key < 65) {
+                return false;
+            } else if (key < 48 || key > 122) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        };
+
+    </script>
+}

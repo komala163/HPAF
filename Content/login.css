@@ -1,0 +1,98 @@
+﻿body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+    background-image: url(../../Content/Images/LoginBG.png);
+}
+
+.loginContainer {
+    width: 33.33%;
+    height: 400px;
+    background-color: #DDEEEE;
+    position: absolute;
+    top: -150px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.logoCenter, .nameCenter {
+    margin: 5px 0;
+    display: inline;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    padding-top: 0px;
+}
+
+.form-signin .form-signin-heading {
+    margin-top: 0px;
+    color: blue;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.loginContainer button {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+#tcslogo {
+    display:block;
+    margin:auto;
+}
+
+.loginTcsLogo {
+    position:absolute;
+    width:400px;
+    height:150px;
+    bottom:20px;
+    right:25%;
+    left:47%;
+    margin-left:-160px;
+}
+
+.forgotPasswordContainer a {
+    clear: both;
+    background-color: #337ab7;
+    color: white;
+    font-weight:bold;
+}

@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - HPAF</title>
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @*<div class="navbarBackground">*@
+       
+            @*<div class="row col-md-12">
+                <div class="col-md-6 col-sm-6 col-xs-6" style="max-height:69px;">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/Content/images/DMSLogo.png" class="logo">&nbsp;
+                        <img src="~/Content/images/DMSText.png" class="logo">
+                    </a>
+                </div>*@
+              
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           
+        </div>
+        <div class="navbarBackground">
+            <div class="top-header container">
+                <div class="row col-md-12">
+                    <div class="col-md-6 col-sm-6 col-xs-6" style="max-height:69px;">
+                        <a href="@Url.Action("Index", "Home")">
+                            @*<img src="~/Content/images/DMSLogo.png" class="logo">&nbsp;
+                            <img src="~/Content/images/DMSText.png" class="logo">*@
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <table class="pull-right navloggin" style="text-align:right;">
+                            @if (Session["UserRole"] != null)
+                            {
+                                <tr>
+                                    <td>
+                                        Welcome<br />
+                                        <b>@Session["UserFullName"]</b><br />
+                                        @if (Session["UserRole"].ToString() == "Executive")
+                                        {
+                                            <div>Executive</div>
+                                        }
+                                        else if (Session["UserRole"].ToString() == "Admin")
+                                        {
+                                            <div>Admin</div><div id="session"></div>
+                                        }
+
+                                        <br />
+                                    </td>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td>
+                                        @if (Session["UserProfilePhoto"] != "")
+                                        {
+                                            <img src="@Session["UserProfilePhoto"]" id="userPhoto" class="userPhoto img-thumbnail" alt="User Profile Photo" />
+                                        }
+                                        else
+                                        {
+                                            <img src="/Content/Images/DefaultUserProfile.png" id="userPhoto" class="userPhoto img-thumbnail" alt="User Profile Photo" />
+                                        }
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td>
+                                        <a href="@Url.Action("LogOut", "Login")" id="logoutButton"><i class="fa fa-sign-out logoutIcon"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                { Response.Redirect("~/Shared/Error.cshtml"); }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="navbarHeader" data-spy="affix" data-offset-top="69">
+                <header class="container navbar navbar-inverse bs-docs-nav" role="banner">
+                    @if (Session["UserRole"].ToString() == "Executive" || Session["UserRole"].ToString() == "Admin")
+                    {
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("On-Board Customer", "CustomerDetails", "OnBoardCustomer")</li>
+                                <li>@Html.ActionLink("EMI Payment", "Index", "EMIPayment")</li>
+                                <li>@Html.ActionLink("Generate Due List", "Index", "GenerateDueList")</li>
+                                <li>@Html.ActionLink("Ledger", "Index", "Ledger")</li>
+                                <li>@Html.ActionLink("Investment Centre", "Index", "InvestmentCentre")</li>
+                                <li>@Html.ActionLink("Employee Centre", "Index", "EmployeeCentre")</li>
+                            </ul>
+                        </nav>
+                    </div>
+                    }
+
+                    else
+                    {
+                        if (!Response.IsRequestBeingRedirected)
+                        {
+                            Response.Redirect("~/Shared/Error.cshtml");
+                        }
+                    }
+                </header>
+            </div>
+        </div>
+        @*<div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("On-Board Customer", "CustomerDetails", "OnBoardCustomer")</li>
+                <li>@Html.ActionLink("EMI Payment", "Index", "EMIPayment")</li>
+                <li>@Html.ActionLink("Generate Due List", "Index", "GenerateDueList")</li>
+                <li>@Html.ActionLink("Ledger", "Index", "Ledger")</li>
+                <li>@Html.ActionLink("Investment Centre", "Index", "InvestmentCentre")</li>
+                <li>@Html.ActionLink("Employee Centre", "Index", "EmployeeCentre")</li>
+            </ul>
+        </div>*@
+    </div>
+
+
+        <div class="container" id="bodyContainer" style="margin-bottom:60px;">
+            @RenderBody()
+            <hr />
+            @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/toastr")
+</body>
+</html>
+<script>
+
+</script>
